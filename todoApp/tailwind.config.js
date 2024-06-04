@@ -9,9 +9,13 @@ export default {
     extend: {
       dropShadow: {
         glow: [
-          "0 0 20px rgba(0, 0, 255, 0.7)",
+          "0 0 20px rgba(0, 0, 255, 0.6)",
           "0 0px 65px rgba(0, 0,255, 0.2)"
         ]
+      },
+      colors: {
+        'black': '#080808',
+        'white': '#f7f7f7',
       }
     },
     screens: {
@@ -21,7 +25,8 @@ export default {
       'lg': '1024px',
       'xl': '1280px',
       '2xl': '1536px',
-    }
+    },
+    
   },
   plugins: [],
 }
