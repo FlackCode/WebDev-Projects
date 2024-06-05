@@ -1,0 +1,14 @@
+[
+    {
+        "id" : 1,
+        "title": "Finish this project",
+        "description": "Need to finish this project ASAP",
+        "details": "Create the create tasks page, handle creating tasks, hook-up a database, registration and ship it to github."
+    },
+    { 
+        "id": 2, 
+        "title": "Go to the gym", 
+        "description": "Hit the gym and do shoulders & forearms", 
+        "details": "Workout for around 1-2 hours and go back home." 
+    }
+]
