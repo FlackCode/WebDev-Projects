@@ -14,8 +14,11 @@ export default {
         ]
       },
       colors: {
-        'black': '#080808',
-        'white': '#f7f7f7',
+        'background': '#080808',
+        'text': '#f7f7f7',
+        'highlight': '#60a5fa',
+        'primary': '#3b82f6',
+        'hover': '#2563eb'
       }
     },
     screens: {
@@ -30,4 +33,3 @@ export default {
   },
   plugins: [],
 }
-

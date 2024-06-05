@@ -2,10 +2,10 @@ import Navbar from "./Navbar"
 
 const Login = () => {
   return (
-    <div className="flex flex-col text-white h-screen bg-black">
+    <div className="flex flex-col text-text h-screen bg-background">
       <Navbar/>
       <div className="flex flex-col items-center justify-center flex-grow px-4">
-        <div className="bg-gray-800 p-8 rounded-lg shadow-lg w-full max-w-md">
+        <div className="bg-background p-8 rounded-md shadow-lg w-full max-w-md border-2">
           <h2 className="text-3xl font-bold mb-6 text-center">Login</h2>
           <form className="flex flex-col gap-4" autoComplete="off">
             <div>
@@ -32,7 +32,7 @@ const Login = () => {
             </div>
             <button
               type="submit"
-              className="mt-4 px-4 py-2 bg-blue-500 rounded-full font-semibold transition-all duration-300 hover:scale-110 hover:bg-blue-700 hover:drop-shadow-xl hover:shadow-blue-400"
+              className="mt-4 px-4 py-2 bg-primary rounded-full font-semibold transition-all duration-300 hover:scale-110 hover:bg-hover"
             >
               Login
             </button>
