@@ -16,24 +16,30 @@ const Register = () => {
     const formData = new FormData(e.target)
     const { username, email, password } = Object.fromEntries(formData)
 
-    try {
-      const response = await createUserWithEmailAndPassword(auth, email, password)
-
-      await setDoc(doc(db, 'users', response.user.uid), {
-        username,
-        email,
-        id: response.user.uid,
-        activeTasks: [],
-        archivedTasks: [],
-      })
-
-      console.log('Test 2')
-      setUsername('')
-      setEmail('')
-      setPassword('')
-      setSuccess('New account created successfully!')
-    } catch (error) {
-      console.error()
+    if (password.length < 6) {
+      setSuccess('Password must be atleast 6 characters long.')
+    } else if (!email || !username) {
+      setSuccess('Username or email empty.')
+    } else {
+      try {
+        const response = await createUserWithEmailAndPassword(auth, email, password)
+      
+        await setDoc(doc(db, 'users', response.user.uid), {
+          username,
+          email,
+          id: response.user.uid,
+          activeTasks: [],
+          archivedTasks: [],
+        })
+      
+        console.log('Test 2')
+        setUsername('')
+        setEmail('')
+        setPassword('')
+        setSuccess('New account created successfully!')
+      } catch (error) {
+        console.error()
+      }
     }
   }
   const handleUsernameChange = (e) => {
@@ -47,7 +53,7 @@ const Register = () => {
   const handlePasswordChange = (e) => {
     setPassword(e.target.value)
   }
-
+  
   return (
     <div className="flex flex-col text-white h-screen bg-background">
       <Navbar/>
