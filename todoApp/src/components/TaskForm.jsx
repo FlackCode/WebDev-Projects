@@ -1,8 +1,56 @@
+import { arrayUnion, doc, updateDoc } from "firebase/firestore"
+import { useUserStore } from "../lib/userStore"
+import { db } from "../lib/firebase"
+import { useState } from "react"
+
+
 const TaskForm = () => {
-    const handleSubmit = (event) => {
-        event.preventDefault()
-        console.log("Task created")
+  const [success, setSuccess] = useState('')
+  const [title, setTitle] = useState('')
+  const [description, setDescription] = useState('')
+  const [details, setDetails] = useState('')
+  const { currentUser } = useUserStore()
+
+  const handleSubmit = async (event) => {
+      event.preventDefault()
+      const formData = new FormData(event.target)
+      const { title, description, details } = Object.fromEntries(formData)
+      const timestamp = new Date().getTime()
+      const newTask = {
+        id: timestamp,
+        title,
+        description,
+        details
       }
+
+      try {
+        const userDocRef = doc(db, 'users', currentUser.id)
+        await updateDoc(userDocRef, {
+          activeTasks: arrayUnion(newTask)
+        })
+
+        setTitle('')
+        setDescription('')
+        setDetails('')
+        setSuccess('New task created successfully.')
+        setTimeout(() => {
+          setSuccess('')
+        }, 3000)
+      } catch (error) {
+        console.error(error)
+        setSuccess('Error creating task!')
+      }
+  }
+
+  const handleTitleChange = (e) => {
+    setTitle(e.target.value)
+  }
+  const handleDescriptionChange = (e) => {
+    setDescription(e.target.value)
+  }
+  const handleDetailsChange = (e) => {
+    setDetails(e.target.value)   
+  }
 
   return (
     <div className="flex flex-grow">
@@ -17,8 +65,11 @@ const TaskForm = () => {
               <input
                 type="text"
                 id="title"
+                name='title'
                 className="mt-1 p-2 w-full rounded-md bg-gray-900 border border-gray-700 focus:border-blue-500 focus:ring-blue-500"
                 autoComplete="off"
+                value={title}
+                onChange={handleTitleChange}
               />
             </div>
             <div>
@@ -28,8 +79,11 @@ const TaskForm = () => {
               <input
                 type="text"
                 id="description"
+                name='description'
                 className="mt-1 p-2 w-full rounded-md bg-gray-900 border border-gray-700 focus:border-blue-500 focus:ring-blue-500"
                 autoComplete="off"
+                value={description}
+                onChange={handleDescriptionChange}
               />
             </div>
             <div>
@@ -38,9 +92,12 @@ const TaskForm = () => {
               </label>
               <textarea
                 id="details"
+                name='details'
                 className="mt-1 p-2 w-full rounded-md bg-gray-900 border border-gray-700 focus:border-blue-500 focus:ring-blue-500"
                 rows="4"
                 autoComplete="off"
+                value={details}
+                onChange={handleDetailsChange}
               />
             </div>
             <button
@@ -49,6 +106,7 @@ const TaskForm = () => {
             >
               Create Task
             </button>
+            <p className="text-center">{success}</p>
           </form>
         </div>
       </div>
