@@ -5,7 +5,7 @@ const WeatherContent = () => {
     const [weatherData, setWeatherData] = useState(null)
 
     const handleSearch = async () => {
-        const response = await fetch(`http://api.weatherapi.com/v1/current.json?key=${import.meta.env.VITE_WEATHERKEY}&q=${searchInput}&aqi=no`)
+        const response = await fetch(`https://api.weatherapi.com/v1/current.json?key=${import.meta.env.VITE_WEATHERKEY}&q=${searchInput}&aqi=no`)
         const data = await response.json()
         console.log(data)
         setWeatherData(data)
