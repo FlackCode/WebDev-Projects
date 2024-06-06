@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 
 const Navbar = ({ navtext }) => {
   return (
@@ -8,9 +8,15 @@ const Navbar = ({ navtext }) => {
         <p>{navtext}</p>
       </div>
       <div className='flex gap-2'>
-        <Link className='transition-all duration-300 hover:text-highlight hover:drop-shadow-glow'>whoami</Link>
-        <Link className='transition-all duration-300 hover:text-highlight hover:drop-shadow-glow'>projects</Link>
-        <Link className='transition-all duration-300 hover:text-highlight hover:drop-shadow-glow'>blog</Link>
+        <NavLink to={'/'} 
+        className={({ isActive }) => isActive ? 'text-highlight transition-all duration-300 hover:drop-shadow-glow' : 
+        'transition-all duration-300 hover:text-highlight hover:drop-shadow-glow'}>whoami</NavLink>
+        <NavLink to={'/projects'}
+        className={({ isActive }) => isActive ? 'text-highlight transition-all duration-300 hover:drop-shadow-glow' : 
+        'transition-all duration-300 hover:text-highlight hover:drop-shadow-glow'}>projects</NavLink>
+        <NavLink to={'/blog'}
+        className={({ isActive }) => isActive ? 'text-highlight transition-all duration-300 hover:drop-shadow-glow' : 
+        'transition-all duration-300 hover:text-highlight hover:drop-shadow-glow'}>blog</NavLink>
       </div>
     </div>
   )
