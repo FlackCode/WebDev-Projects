@@ -2,15 +2,14 @@
 
 ### Beginner Level Projects
 
-1. **To-Do List App**
+1. **To-Do List App** ✅
    - Features: Add, edit, delete, and mark tasks as complete.
    - Skills: CRUD operations, local state management, basic Tailwind styling.
    - Firebase: Store tasks in Firestore.
 
-2. **Weather App**
+2. **Weather App** ✅
    - Features: Fetch and display current weather information for a given location.
    - Skills: API integration, state management, responsive design with Tailwind.
-   - Firebase: Store user preferences (e.g., preferred units, favorite locations).
 
 3. **Blog Website**
    - Features: Display a list of blog posts, read individual posts, add comments.
