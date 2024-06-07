@@ -1,49 +1,63 @@
 import { useParams } from 'react-router-dom'
 import Navbar from './Navbar'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
+import { arrayUnion, collection, doc, getDocs, updateDoc } from 'firebase/firestore'
+import { db } from '../lib/firebase'
 
 const BlogDetails = () => {
   const { id } = useParams()
-  const blogArray = [
-    {
-        id: 1,
-        title: 'Blog test 1',
-        content: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima voluptatum doloremque corrupti, blanditiis reiciendis repellat nihil fuga, totam odio rem ducimus consectetur corporis adipisci repellendus error omnis, perferendis earum sapiente.',
-        comments: [
-            {
-                id: 1,
-                name: 'test',
-                text: 'this is a test comment!'
-            },
-            {
-                id: 2,
-                name: 'test',
-                text: 'this is a test comment!'
-            },
-            {
-                id: 3,
-                name: 'test',
-                text: 'this is a test comment!'
-            }
-        ]
-    },
-    {
-        id: 2,
-        title: 'Blog test 2',
-        content: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima voluptatum doloremque corrupti, blanditiis reiciendis repellat nihil fuga, totam odio rem ducimus consectetur corporis adipisci repellendus error omnis, perferendis earum sapiente.',
-        comments: [
-            {
-                id: 1,
-                name: 'test',
-                text: 'this is a test comment!'
-            }
-        ]
-    },
-  ]
+  const [blogs, setBlogs] = useState([])
+  const [comments, setComments] = useState([])
 
-  const blog = blogArray.find(blog => blog.id === parseInt(id))
+  useEffect(() => {
+    const fetchBlogs = async () => {
+      try {
+        const querySnapshot = await getDocs(collection(db, 'posts'))
+        const blogsArray = querySnapshot.docs.map(doc => ({
+          id: doc.id,
+          ...doc.data()
+        }))
+        setBlogs(blogsArray)
+      } catch (error) {
+        console.error(error)
+      }
+    }
 
-  const [comments, setComments] = useState(blog ? blog.comments : [])
+    fetchBlogs()
+  }, [])
+
+  useEffect(() => {
+    const blog = blogs.find(blog => blog.id === id)
+    if (blog) {
+      setComments(blog.comments)
+    }
+  }, [blogs, id])
+
+  const blog = blogs.find(blog => blog.id === parseInt(id))
+
+  const handleSubmit = async (event) => {
+    event.preventDefault()
+    const formData = new FormData(event.target)
+    const { name, comment } = Object.fromEntries(formData)
+
+    const newComment = {
+        id: new Date().getTime(),
+        name: name,
+        text: comment
+    }
+
+    try {
+        const postsDocRef = doc(db, 'posts', id)
+        await updateDoc(postsDocRef, {
+            comments: arrayUnion(newComment)
+        })
+
+        setComments(prevComments => [...prevComments, newComment])
+        event.target.reset()
+    } catch (error) {
+        console.error(error)
+    }
+  }
 
   if (!blog) {
     return <p>Blog not found</p>
@@ -52,7 +66,7 @@ const BlogDetails = () => {
   return (
     <div className="bg-background text-text min-h-screen w-full flex flex-col items-center p-4">
       <div className="xl:w-2/5 xsm:w-full">
-        <Navbar navtext={'blog details'} />
+        <Navbar navtext={'blog post'} />
         <div className="flex flex-col">
           <div className="py-8">
             <h1 className="font-bold md:text-5xl xsm:text-3xl">{blog.title}</h1>
@@ -62,7 +76,7 @@ const BlogDetails = () => {
           </div>
           <div className="py-4">
             <h1 className="font-bold md:text-3xl xsm:text-xl mb-2">Leave a Comment</h1>
-            <form className="flex flex-col gap-4">
+            <form className="flex flex-col gap-4" onSubmit={handleSubmit}>
             <input className="p-2 bg-gray-700 text-white" type="text" placeholder="Your name" name='name'/>
               <textarea className="p-2 bg-gray-700 text-white" rows="4" placeholder="Your comment" name='comment'></textarea>
               <button type="submit" className="p-2 bg-blue-500 text-white transition-all duration-300 hover:bg-hover">Submit</button>

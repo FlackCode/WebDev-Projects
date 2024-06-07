@@ -9,7 +9,10 @@ const BlogComponent = ({blog}) => {
   
     return (
       <div className="text-text border-2 p-2 cursor-pointer rounded-md" onClick={handleClick}>
-        <h1 className="md:text-4xl xsm:text-3xl font-bold tracking-wider">{blog.title}</h1>
+        <div>
+            <h1 className="md:text-4xl xsm:text-3xl font-bold tracking-wider">{blog.title}</h1>
+            <p>Click to open!</p>
+        </div>
       </div>
     )
 }

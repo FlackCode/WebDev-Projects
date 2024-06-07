@@ -25,8 +25,6 @@ const Whoami = () => {
             <div className="py-4 flex flex-col gap-4 tracking-wider font-semibold xsm:text-base md:text-lg">
               <a className="text-sky-700 underline underline-offset-4">&gt; Discord: flackkkk</a>
               <a className="text-blue-400 underline underline-offset-4">&gt; Email: fl4ckc0de@gmail.com</a>
-              <a href="https://www.instagram.com/flackcodes/" className="text-purple-400 underline underline-offset-4 w-32">&gt; Instagram</a>
-              <a href="https://x.com/flackjsx" className="underline underline-offset-4 w-32">&gt; Twitter / X</a>
               <a href="https://www.youtube.com/channel/UCV5DS_mBLPdfjpyrTFWYVBg" className="text-red-600 underline underline-offset-4 w-32">&gt; Youtube</a>
               <a href="https://github.com/FlackCode" className="underline underline-offset-4 w-32">&gt; Github</a>
               <a href="https://www.last.fm/user/Flack1_" className="text-red-500 underline underline-offset-4 w-32">&gt; Last.fm</a>
