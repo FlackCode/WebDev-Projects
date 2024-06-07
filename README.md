@@ -11,7 +11,7 @@
    - Features: Fetch and display current weather information for a given location.
    - Skills: API integration, state management, responsive design with Tailwind.
 
-3. **Blog Website**
+3. **Blog Website** ✅
    - Features: Display a list of blog posts, read individual posts, add comments.
    - Skills: Routing, dynamic content rendering, Tailwind components.
    - Firebase: Store blog posts and comments in Firestore.
