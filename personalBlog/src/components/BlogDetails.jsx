@@ -27,7 +27,7 @@ const BlogDetails = () => {
   }, [])
 
   useEffect(() => {
-    const blog = blogs.find(blog => blog.id === id)
+    const blog = blogs.find(blog => blog.id == id)
     if (blog) {
       setComments(blog.comments)
     }
