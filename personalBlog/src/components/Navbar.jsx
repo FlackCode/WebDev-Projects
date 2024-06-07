@@ -1,10 +1,10 @@
-import { NavLink } from 'react-router-dom'
+import { NavLink, Link } from 'react-router-dom'
 
 const Navbar = ({ navtext }) => {
   return (
     <div className='flex flex-row justify-between text-gray-300 py-4 font-medium'>
       <div className='flex gap-2'>
-        <h1>flack...</h1>
+        <Link className='select-none cursor-default' to={'/admin'}>flack...</Link>
         <p>{navtext}</p>
       </div>
       <div className='flex gap-2'>

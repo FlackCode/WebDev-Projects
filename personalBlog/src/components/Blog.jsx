@@ -16,7 +16,7 @@ const Blog = () => {
   ]
 
   return (
-    <div className="bg-black text-text min-h-screen w-full flex flex-col items-center p-4 ">
+    <div className="bg-background text-text min-h-screen w-full flex flex-col items-center p-4">
       <div className="xl:w-2/5 xsm:w-full">
         <Navbar navtext={'blog'}/>
         <div className="flex flex-col">

@@ -2,7 +2,7 @@ import Navbar from "./Navbar"
 
 const Projects = () => {
   return (
-    <div className="bg-black text-text h-screen w-full flex flex-col items-center p-4 ">
+    <div className="bg-background text-text h-screen w-full flex flex-col items-center p-4 ">
       <div className="xl:w-2/5 xsm:w-full">
         <Navbar navtext={'projects'}/>
         <div className="flex flex-col">
@@ -19,7 +19,7 @@ const Projects = () => {
             <div>
               <div className="flex flex-row justify-between py-2 items-center">
                 <h1 className="tracking-wider xsm:text-3xl font-bold text-highlight underline underline-offset-4">fastType.net</h1>
-                <a href="" className="tracking-wider xsm:text-3xl font-semibold underline underline-offset-4 transition-all duration-300 hover:text-highlight hover:drop-shadow-glow">Visit site</a>
+                <a href="https://fast-type-net.vercel.app/" className="tracking-wider xsm:text-3xl font-semibold underline underline-offset-4 transition-all duration-300 hover:text-highlight hover:drop-shadow-glow">Visit site</a>
               </div>
               <hr />
               <p className="py-2 font-medium tracking-wider">

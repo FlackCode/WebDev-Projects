@@ -3,6 +3,7 @@ import Whoami from './components/Whoami'
 import Projects from './components/Projects'
 import Blog from './components/Blog'
 import BlogDetails from './components/BlogDetails'
+import Admin from './components/Admin'
 
 const routes = createBrowserRouter([
   {
@@ -20,6 +21,10 @@ const routes = createBrowserRouter([
   {
     path: '/blog/:id',
     element: <BlogDetails/>
+  },
+  {
+    path: '/admin',
+    element: <Admin/>
   }
 ])
 

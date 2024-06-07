@@ -50,7 +50,7 @@ const BlogDetails = () => {
   }
 
   return (
-    <div className="bg-black text-text min-h-screen w-full flex flex-col items-center p-4">
+    <div className="bg-background text-text min-h-screen w-full flex flex-col items-center p-4">
       <div className="xl:w-2/5 xsm:w-full">
         <Navbar navtext={'blog details'} />
         <div className="flex flex-col">
@@ -65,7 +65,7 @@ const BlogDetails = () => {
             <form className="flex flex-col gap-4">
             <input className="p-2 bg-gray-700 text-white" type="text" placeholder="Your name" name='name'/>
               <textarea className="p-2 bg-gray-700 text-white" rows="4" placeholder="Your comment" name='comment'></textarea>
-              <button type="submit" className="p-2 bg-blue-500 text-white">Submit</button>
+              <button type="submit" className="p-2 bg-blue-500 text-white transition-all duration-300 hover:bg-hover">Submit</button>
             </form>
           </div>
           <div className='py-4'>
