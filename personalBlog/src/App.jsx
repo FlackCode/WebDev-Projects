@@ -2,6 +2,7 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import Whoami from './components/Whoami'
 import Projects from './components/Projects'
 import Blog from './components/Blog'
+import BlogDetails from './components/BlogDetails'
 
 const routes = createBrowserRouter([
   {
@@ -15,6 +16,10 @@ const routes = createBrowserRouter([
   {
     path: '/blog',
     element: <Blog/>
+  },
+  {
+    path: '/blog/:id',
+    element: <BlogDetails/>
   }
 ])
 
