@@ -5,6 +5,7 @@ export default {
     "./src/*.{js,ts,jsx,tsx}",
     "./src/components/*.{js,ts,jsx,tsx}",
     "./src/components/landing/*.{js,ts,jsx,tsx}",
+    "./src/components/shop/*.{js,ts,jsx,tsx}",
   ],
   theme: {
     extend: {
