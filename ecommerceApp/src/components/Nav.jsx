@@ -1,10 +1,10 @@
-import { BsSearch, BsX } from 'react-icons/bs'
+import { BsSearch } from 'react-icons/bs'
 
 const Nav = () => {
   return (
-    <div className="mainfont text-background py-4 px-48 flex flex-row items-center justify-between gap-8">
-        <h1 className="logofont text-2xl font-semibold">STYLESHARE</h1>
-        <form className="border-1 border-black flex flex-row items-center p-2 flex-grow">
+    <div className="mainfont text-background py-4 px-80 flex flex-row items-center justify-between gap-8 border-b-1 sticky">
+        <h1 className="logofont text-2xl font-semibold tracking-tighter">STYLESHARE</h1>
+        <form className="border-1 border-black flex flex-row items-center p-2 flex-grow rounded-sm">
             <label htmlFor="" className='px-2'>
                 <BsSearch/>
             </label>

@@ -28,4 +28,12 @@
     border-width: 1px;
 }
 
+.border-b-1 {
+    border-bottom-width: 1px;
+}
+
+.header {
+    min-height: 70svh;
+}
+
 
