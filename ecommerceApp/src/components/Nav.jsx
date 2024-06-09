@@ -11,7 +11,7 @@ const Nav = () => {
             <button className='border px-4 py-1 text-xxs md:text-base xl:text-sm font-semibold transition-all duration-300 hover:border-black'>
               SELL
             </button>
-            <Link to={'/shop'} className='text-xxs md:text-base xl:text-sm font-semibold cursor-pointer'>SHOP</Link>
+            <Link to={'/shop'} className='border px-2 py-1 text-xxs md:text-base xl:text-sm font-semibold transition-all duration-300 hover:border-black'>SHOP</Link>
             <button className='border px-2 py-1 text-xxs md:text-base xl:text-sm font-semibold transition-all duration-300 hover:border-black'>LOGIN</button>
             <button className='text-white bg-black border border-black px-2 py-1 text-xxs md:text-base xl:text-sm font-semibold transition-all duration-300 hover:text-gray-200 hover:scale-110'>SIGN UP</button>
           </div>

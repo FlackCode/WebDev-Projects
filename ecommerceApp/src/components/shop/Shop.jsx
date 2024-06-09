@@ -1,5 +1,5 @@
 import Nav from "../Nav"
-import Menu from "../landing/Menu"
+import Menu from "../Menu"
 import ShopContent from "./ShopContent"
 
 const Shop = () => {
