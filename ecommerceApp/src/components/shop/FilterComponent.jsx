@@ -2,7 +2,7 @@ import { useState } from "react"
 import { BsPlus, BsDash } from 'react-icons/bs'
 
 const FilterComponent = ({ title, options }) => {
-  const [isOpened, setIsOpened] = useState(false)
+  const [isOpened, setIsOpened] = useState(true)
 
   const handleOpen = () => {
     setIsOpened(!isOpened);

@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 
 const Nav = () => {
   return (
-    <div className="mainfont text-background py-4 px-2 xl:px-80 border-b-1 sticky">
+    <div className="mainfont text-background bg-white py-4 px-2 xl:px-80 border-b-1 sticky z-20 w-full top-0">
       <div className="grid xsm:grid-cols-1 xl:grid-cols-6 items-center gap-2">
         <div className="flex flex-row justify-between items-center col-span-1 xl:col-span-6">
           <Link to={'/'} className="logofont xsm:text-sm xl:text-2xl font-semibold tracking-tighter xsm:text-center xl:text-left">STYLESHARE</Link>
@@ -21,7 +21,7 @@ const Nav = () => {
             <BsSearch />
           </label>
           <input type="text" id="search" className='flex-1 h-full px-2 py-2 border-none focus:outline-none' placeholder='Search...' />
-          <button className='border px-2 py-1 text-sm font-semibold transition-all duration-300 hover:border-black'>
+          <button className='border px-2 py-1 xsm:text-xs md:text-sm font-semibold transition-all duration-300 hover:border-black'>
             SEARCH
           </button>
         </form>
